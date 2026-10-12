@@ -559,6 +559,26 @@ else:
 
     if st.session_state.get("report_markdown"):
         b_md = st.session_state["report_markdown"]
-        st.download_button("💾 Download Loaded Report", data=b_md, file_name="libtrial_sample_report.md", mime="text/markdown")
+        pdf_backup_path = "examples/sample_report.pdf"
+        b_col_pdf, b_col_md = st.columns(2)
+        with b_col_pdf:
+            if os.path.exists(pdf_backup_path):
+                with open(pdf_backup_path, "rb") as bpf:
+                    st.download_button(
+                        "📄 Download Sample Report (PDF)",
+                        data=bpf.read(),
+                        file_name="libtrial_sample_report.pdf",
+                        mime="application/pdf",
+                        type="primary",
+                        use_container_width=True,
+                    )
+        with b_col_md:
+            st.download_button(
+                "💾 Download Sample Report (Markdown)",
+                data=b_md,
+                file_name="libtrial_sample_report.md",
+                mime="text/markdown",
+                use_container_width=True,
+            )
         with st.expander("👁️ Preview Loaded Report", expanded=True):
             st.markdown(b_md)
