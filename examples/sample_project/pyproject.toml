@@ -1,0 +1,12 @@
+[project]
+name = "fast-analytics"
+version = "0.1.0"
+description = "A lightweight FastAPI analytics service"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi>=0.100.0",
+    "pydantic>=2.0.0",
+    "requests>=2.28.0",
+    "urllib3==1.26.15",
+]
