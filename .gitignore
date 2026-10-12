@@ -57,3 +57,6 @@ htmlcov/
 
 # Streamlit runtime
 .streamlit/secrets.toml
+
+hacktoberfest_fork/
+
